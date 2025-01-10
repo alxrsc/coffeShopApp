@@ -11,10 +11,11 @@
 
 #include <iostream>
 
+// Concept POO: mostenire
 class Barista : public Employee {
 
 public:
-    static int makeCoffee(string coffeType, string milkType);
+    static string language;
     static map<string, int> prepareOrder(map<string, int> order);
 };
 

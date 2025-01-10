@@ -1,0 +1,6 @@
+firstName,lastName,position,salary/hour,day1,day1Hours,day2,day2Hours...
+John,Doe,Barista,10,Luni,08-16,Marti,08-16
+Ionica,Nebunu,Barista,2,Luni,08-16,Marti,08-16,Miercuri,08-16,Joi,08-16,Vineri,08-16
+Robert,Cionpei,Ospatar,5,Marti,16-23
+Alessandro,Rossi,Ospatar,20,Vineri,20-24
+Lucian,Blaga,Ospatar,10,Joi,18-22,Luni,08-22

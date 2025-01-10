@@ -19,6 +19,7 @@ class Client {
     map<string, int> order;
 
 public:
+    static string language;
 
     Client();
     ~Client();

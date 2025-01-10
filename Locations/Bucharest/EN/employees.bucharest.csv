@@ -1,0 +1,5 @@
+firstName,lastName,position,salary/hour,day1,day1Hours,day2,day2Hours,day3,day3Hours,day4,day4Hours,day5,day5Hours
+Andrei,Stan,Chef,9,Friday,20-24
+Paul,Petrescu,Manager,18,Saturday,12-20,Sunday,16-23
+George,Ionescu,Server,5,Friday,12-20,Monday,10-20,Sunday,16-23,Thursday,20-24,Saturday,12-20,Sunday,12-20
+Ion,Marin,Manager,10,Wednesday,08-16,Sunday,12-20,Monday,08-16,Wednesday,18-22

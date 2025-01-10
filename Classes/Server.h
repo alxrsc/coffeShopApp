@@ -8,13 +8,15 @@
 #include "Employee.h"
 #include "../Utils/CSVHandler.h"
 
-
+// Concept POO: mostenire
 class Server : public Employee {
     int total;
     string paymentType;
     map<string, int> order;
 
 public:
+    static string language;
+
     static map<string, int> takeOrder();
     static int serveOrder(map<string, int> order);
     static int serveBill(string paymentType, map<string, int> order);

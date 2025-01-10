@@ -1,0 +1,22 @@
+Nr. Test | Descriere | Clasă | Metoda/Funcționalitate | Intrare | Ieșire Așteptată | Status | Observații
+
+1 | Testare creare client | Client | Constructor | Nume, Prenume | Obiect Client valid | Așteptat | Verifică că obiectul Client este creat corect
+2 | Testare setare nume client | Client | setFirstName() | "Alex" | "Alex" | Așteptat | Verifică dacă se setează corect numele clientului
+3 | Testare setare prenume client | Client | setLastName() | "Roșca" | "Roșca" | Așteptat | Verifică dacă se setează corect prenumele clientului
+4 | Testare setare total client | Client | setTotal() | 50 | 50 | Așteptat | Verifică dacă se setează corect totalul clientului
+5 | Testare setare comandă client | Client | setOrder() | map<string, int> | map<string, int> corect | Așteptat | Verifică dacă se setează corect comanda clientului
+6 | Testare calcul total comandă | CSVHandler | calculateTotal() | map<string, int> | Total corect | Așteptat | Verifică dacă totalul comenzii este calculat corect
+7 | Testare adăugare orar angajat | Employee | addWorkingHours() | "Luni", "9-17" | Orar adăugat corect | Așteptat | Verifică dacă orarul este adăugat corect
+8 | Testare ștergere orar angajat | Employee | removeWorkingHours() | "Luni" | Orar șters corect | Așteptat | Verifică dacă orarul este șters corect
+9 | Testare creare comandă server | Server | takeOrder() | map<string, int> | map<string, int> corect | Așteptat | Verifică dacă comanda este preluată corect
+10 | Testare servire comandă server | Server | serveOrder() | map<string, int> | Total comandă | Așteptat | Verifică dacă comanda este servită corect
+11 | Testare plată factură server | Server | serveBill() | "card", map<string, int> | Total corect | Așteptat | Verifică dacă plata este procesată corect
+12 | Testare primire plată server | Server | recievePayment() | "card", 50 | "Plată primită" | Așteptat | Verifică dacă plata este primită corect
+13 | Testare creare angajat | Employee | Constructor | "Ion", "Popescu" | Obiect Employee valid | Așteptat | Verifică dacă un angajat este creat corect
+14 | Testare schimbare salariu angajat | Manager | changeSalary() | Employee*, 1000 | Salariul actualizat la 1000 | Așteptat | Verifică dacă salariul unui angajat poate fi modificat
+15 | Testare schimbare poziție angajat | Manager | changePosition() | Employee*, "Barista" | Poziție schimbată la "Barista" | Așteptat | Verifică dacă poziția unui angajat poate fi schimbată
+16 | Testare adăugare personal manager | Manager | addPersonel() | Employee* | Personal adăugat corect | Așteptat | Verifică dacă personalul este adăugat corect
+17 | Testare ștergere personal manager | Manager | removePersonel() | Employee* | Personal șters corect | Așteptat | Verifică dacă personalul poate fi șters corect
+18 | Testare completare raport zilnic | CSVHandler | writeDailyReport() | "start.csv", "end.csv", "2025-01-10" | Raport generat corect | Așteptat | Verifică dacă raportul zilnic este generat corect
+19 | Testare calcul scor fidelitate client | CSVHandler | calculateFidelityScore() | "Alex", "Roșca" | Scor fidelitate corect | Așteptat | Verifică dacă scorul de fidelitate este calculat corect
+20 | Testare verificare disponibilitate produs în meniu | CSVHandler | existsInMenu() | "Cappuccino" | true/false | Așteptat | Verifică dacă un produs există în meniu

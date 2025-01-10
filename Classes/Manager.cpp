@@ -5,6 +5,8 @@
 #include "Manager.h"
 #include "../Utils/CSVHandler.h"
 
+string Manager::language = "";
+
 void Manager::addPersonel() {
     Employee *employee = new Employee();
     // input from the user the first name, last name, working hours and salary
@@ -17,27 +19,53 @@ void Manager::addPersonel() {
     int salary;
     char option;
 
-    cout << "Enter the first name: ";
-    cin >> firstName;
-    cout << "Enter the last name: ";
-    cin >> lastName;
-    cout << "Enter the position: ";
-    cin >> position;
+    if(Manager::language == "en") {
+        cout << "Enter the first name: ";
+        getline(cin, firstName);
+        cout << "Enter the last name: ";
+        getline(cin, lastName);
+        cout << "Enter the position: ";
+        getline(cin, position);
 
-    cout << "Enter the working hours: " << endl;
-    do {
-        cout << "Enter the day: ";
-        cin >> day;
-        cout << "Enter the hours (hh-hh): ";
-        cin >> hours;
-        workingHours.push_back(make_pair(day, hours));
+        cout << "Enter the working hours " << endl;
+        do {
+            cout << "Enter the day: ";
+            getline(cin, day);
+            cout << "Enter the hours (hh-hh): ";
+            getline(cin, hours);
+            workingHours.push_back(make_pair(day, hours));
 
-        cout << "Do you want to add another day? (y/n): ";
-        cin >> option;
-    } while (option != 'n');
+            cout << "Do you want to add another day? (y/n): ";
+            cin >> option;
+        } while (option != 'n');
 
-    cout << "Enter the salary: ";
-    cin >> salary;
+        cout << "Enter the salary: ";
+        cin >> salary;
+    }
+    else if(Manager::language == "ro") {
+        cout << "Introduceti prenumele: ";
+        getline(cin, firstName);
+        cout << "Introduceti numele: ";
+        getline(cin, lastName);
+        cout << "Introduceti postul: ";
+        getline(cin, position);
+
+        cout << "Introduceti programul angajatului " << endl;
+        do {
+            cout << "Introduceti ziua: ";
+            getline(cin, day);
+            cout << "Introduceti orele (hh-hh): ";
+            getline(cin, hours);
+            workingHours.push_back(make_pair(day, hours));
+
+            cout << "Doriti sa adaugati alta zi? (d/n) ";
+            cin >> option;
+        } while (option != 'n');
+
+        cout << "Introduceti salariul: ";
+        cin >> salary;
+    }
+
 
     employee->setFirstName(firstName);
     employee->setLastName(lastName);
@@ -55,20 +83,39 @@ void Manager::removePersonel(Employee *employee) {
 }
 
 void Manager::changeSalary(Employee *employee) {
-    try {
-        employee = CSVHandler::readEmployee(employee->getFirstName(), employee->getLastName());
-        if (employee == nullptr) {
-            throw runtime_error("Employee not found");
+    if(Manager::language == "en") {
+        try {
+            employee = CSVHandler::readEmployee(employee->getFirstName(), employee->getLastName());
+            if (employee == nullptr) {
+                throw runtime_error("Employee not found");
+            }
+            cout << "Enter the new salary: ";
+
+            int newSalary;
+            cin >> newSalary;
+
+            employee->setSalary(newSalary);
+            CSVHandler::editEmployee(employee);
+        } catch (const exception& e) {
+            cout << e.what() << '\n';
         }
-        cout << "Enter the new salary: ";
+    }
+    else if(Manager::language == "ro") {
+        try {
+            employee = CSVHandler::readEmployee(employee->getFirstName(), employee->getLastName());
+            if (employee == nullptr) {
+                throw runtime_error("Angajatul nu a fost gasit");
+            }
+            cout << "Introduceti noul salariu: ";
 
-        int newSalary;
-        cin >> newSalary;
+            int newSalary;
+            cin >> newSalary;
 
-        employee->setSalary(newSalary);
-        CSVHandler::editEmployee(employee);
-    } catch (const exception& e) {
-        cout << e.what() << '\n';
+            employee->setSalary(newSalary);
+            CSVHandler::editEmployee(employee);
+        } catch (const exception& e) {
+            cout << e.what() << '\n';
+        }
     }
 
 }
@@ -77,14 +124,23 @@ void Manager::changePosition(Employee *employee) {
     try {
         employee = CSVHandler::readEmployee(employee->getFirstName(), employee->getLastName());
 
-        if(employee == nullptr) {
-            throw runtime_error("Employee not found");
+        if(Manager::language == "en") {
+            if(employee == nullptr) {
+                throw runtime_error("Employee not found");
+            }
+
+            cout << "Enter the new position: ";
+        }
+        else if(Manager::language == "ro") {
+            if(employee == nullptr) {
+                throw runtime_error("Angajatul nu a fost gasit");
+            }
+
+            cout << "Introduceti noul post: ";
         }
 
-        cout << "Enter the new position: ";
-
         string newPosition;
-        cin >> newPosition;
+        getline(cin, newPosition);
 
         employee->setPosition(newPosition);
         CSVHandler::editEmployee(employee);
@@ -104,16 +160,26 @@ void Manager::changeShift(Employee* employee) {
     try {
         employee = CSVHandler::readEmployee(employee->getFirstName(), employee->getLastName());
 
-        if(employee == nullptr) {
-            throw runtime_error("Employee not found");
+        if(Manager::language == "en") {
+            if(employee == nullptr) {
+                throw runtime_error("Employee not found");
+            }
+
+            cout << "Enter the day: ";
+            getline(cin, day);
+            cout << "Enter the hours: ";
+            getline(cin, hours);
         }
+        else if(Manager::language == "ro") {
+            if(employee == nullptr) {
+                throw runtime_error("Angajatul nu a fost gasit");
+            }
 
-        cout << "Enter the day: ";
-        cin >> day;
-        cout << "Enter the hours: ";
-        cin >> hours;
-
-
+            cout << "Introduceti ziua: ";
+            getline(cin, day);
+            cout << "Introduceti orele de lucru (hh-hh): ";
+            getline(cin, hours);
+        }
 
         newWorkingHours = employee->getWorkingHours();
 
@@ -146,14 +212,26 @@ void Manager::buyStock() {
     int sellPrice;
     int buyPrice;
 
-    cout << "Enter the product name: ";
-    getline(cin, productName);
-    cout << "Enter the quantity: ";
-    cin >> quantity;
-    cout << "Enter the sell price: ";
-    cin >> sellPrice;
-    cout << "Enter the buy price: ";
-    cin >> buyPrice;
+    if(Manager::language == "en") {
+        cout << "Enter the product name: ";
+        getline(cin, productName);
+        cout << "Enter the quantity: ";
+        cin >> quantity;
+        cout << "Enter the sell price: ";
+        cin >> sellPrice;
+        cout << "Enter the buy price: ";
+        cin >> buyPrice;
+    }
+    else if(Manager::language == "ro") {
+        cout << "Introduceti numele produsului: ";
+        getline(cin, productName);
+        cout << "Introduceti cantitatea: ";
+        cin >> quantity;
+        cout << "Introduceti pretul de vanzare: ";
+        cin >> sellPrice;
+        cout << "Introduceti pretul de cumparare: ";
+        cin >> buyPrice;
+    }
 
     productToBuy.push_back(make_tuple(productName, quantity, sellPrice, buyPrice));
 
@@ -176,29 +254,46 @@ void Manager::deleteStock() {
     char option;
 
     do {
-        cout << "Enter the product name: ";
+        if(Manager::language == "en")
+            cout << "Enter the product name: ";
+        else if(Manager::language == "ro")
+            cout << "Introduceti numele produsului: ";
+
         getline(cin, productName);
         quantity = 0;
 
         productsToRemove[productName] = quantity;
 
-        cout << "Do you want to remove another product? (y/n): ";
+        if(Manager::language == "en")
+            cout << "Do you want to remove another product? (y/n): ";
+        else if(Manager::language == "ro")
+            cout << "Doriti sa stergeti un alt produs? (d/n): ";
         cin >> option;
+
     } while(option != 'n');
 
     CSVHandler::deleteStock(productsToRemove);
 }
 
 void Manager::createEvent() {
-    cout << "Enter the date of the event (dd.mm.yyyy): ";
+    if(Manager::language == "en")
+        cout << "Enter the date of the event (dd.mm.yyyy): ";
+    else if(Manager::language == "ro")
+        cout << "Introduceti data evenimentului (zz.ll.aaaa): ";
     string date;
     getline(cin, date);
 
-    cout << "Enter the name of the event: ";
+    if(Manager::language == "en")
+        cout << "Enter the name of the event: ";
+    else if(Manager::language == "ro")
+        cout << "Introduceti numele evenimentului: ";
     string name;
     getline(cin, name);
 
-    cout << "Enter the total cost: ";
+    if(Manager::language == "en")
+        cout << "Enter the total cost: ";
+    else if(Manager::language == "ro")
+        cout << "Introduceti costul total: ";
     int cost;
     cin >> cost;
 
@@ -206,11 +301,17 @@ void Manager::createEvent() {
 }
 
 void Manager::deleteEvent() {
-    cout << "Enter the date of the event (dd.mm.yyyy): ";
+    if(Manager::language == "en")
+        cout << "Enter the date of the event (dd.mm.yyyy): ";
+    else if(Manager::language == "ro")
+        cout << "Introduceti data evenimentului (zz.ll.aaaa): ";
     string date;
     getline(cin, date);
 
-    cout << "Enter the name of the event: ";
+    if(Manager::language == "en")
+        cout << "Enter the name of the event: ";
+    else if(Manager::language == "ro")
+        cout << "Introduceti numele evenimentului: ";
     string name;
     getline(cin, name);
 

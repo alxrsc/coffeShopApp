@@ -8,10 +8,12 @@
 #include "Employee.h"
 #include "../Utils/CSVHandler.h"
 
+// Concept POO: mostenire
 class Manager : public Employee {
 
 public:
 
+    static string language;
     void addPersonel();
     void removePersonel(Employee* employee);
     void changeSalary(Employee* employee);

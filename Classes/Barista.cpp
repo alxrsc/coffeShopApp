@@ -4,55 +4,22 @@
 
 #include "Barista.h"
 
-int Barista::makeCoffee(string coffeeType, string milkType) {
-    map<string, int> requiredStock;
-    requiredStock["coffee"] = 18;
-    requiredStock["milk"] = 150;
-
-
-    if( !CSVHandler::checkStock(coffeeType, 18) || !CSVHandler::checkStock(milkType, 150) ) {
-        cout << "Not enough coffee or milk in stock" << endl;
-        return 1;
-    }
-
-    // remove the stock used for making the coffee
-    CSVHandler::removeStock(requiredStock);
-
-    cout << "Coffee made (" << coffeeType << "," << milkType << ")"<< endl;
-
-    return 0;
-}
+string Barista::language = "";
 
 map<string, int> Barista::prepareOrder(map<string, int> order) {
 
     map<string, int> auxOrder = order;
 
     for(auto const& [product, quantity] : order) {
-        sleep(1);
-        cout << "Preparing " << quantity << " " << product << endl;
-        // if the client ordered coffee, check the type of coffee and milk wanted
-        // if there is not enough coffee or milk in stock, remove the product from the order
-        if(product == "coffee") {
-            // input from the user the type of coffee and type of meal wished
-            string coffeeType;
-            string milkType;
+        sleep(2);
 
-            cout << "Enter the type of coffee: ";
-            cin >> coffeeType;
-            cout << "Enter the type of milk: ";
-            cin >> milkType;
+        if(Barista::language == "en")
+            cout << "Preparing " << quantity << " " << product << endl;
+        else if(Barista::language == "ro")
+            cout << "Se pregateste " << quantity << " " << product << endl;
 
-            if(!CSVHandler::checkStock(coffeeType, 18) || !CSVHandler::checkStock(milkType, 150))
-            {
-                cout << "Not enough coffee or milk in stock" << endl;
-                auxOrder.erase(product);
-            }
-            else {
-                Barista::makeCoffee(coffeeType, milkType);
-            }
 
-        }
-        else if (CSVHandler::existsInMenu(product)) {
+        if (CSVHandler::existsInMenu(product)) {
             if(!CSVHandler::checkStock(product, quantity)) {
                 int sellPrice;
                 int buyPrice;
@@ -63,17 +30,27 @@ map<string, int> Barista::prepareOrder(map<string, int> order) {
             }
         }
         else {
-            cout << "Product " << product << " does not exist in the menu" << endl;
+            if(Barista::language == "en")
+                cout << "Product " << product << " does not exist in the menu" << endl;
+            else if(Barista::language == "ro")
+                cout << "Produsul " << product << " nu exista in meniu" << endl;
+
             auxOrder.erase(product);
         }
 
     }
 
     if(!auxOrder.empty()) {
-        cout << "Order prepared!" << endl;
+        if(Barista::language == "en")
+            cout << "Order prepared!" << endl;
+        else if(Barista::language == "ro")
+            cout << "Comanda pregatita!" << endl;
     }
     else {
-        cout << "No order to prepare!" << endl;
+        if(Barista::language == "en")
+            cout << "Order could not be prepared!" << endl;
+        else if(Barista::language == "ro")
+            cout << "Comanda nu a putut fi pregatita!" << endl;
     }
 
     return auxOrder;

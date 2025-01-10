@@ -4,6 +4,8 @@
 
 #include "Employee.h"
 
+string Employee::language = "";
+
 Employee::Employee() {}
 
 Employee::Employee(string firstName, string lastName) {

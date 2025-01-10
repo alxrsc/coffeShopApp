@@ -21,6 +21,7 @@ class Employee {
 
 
 public:
+    static string language;
     Employee();
     Employee(string firstName, string lastName);
     Employee(string firstName, string lastName, string position, int salary, vector< pair<string, string> > workingHours);
