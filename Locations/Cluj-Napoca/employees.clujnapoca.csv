@@ -1,0 +1,7 @@
+firstName,lastName,position,salary/hour,day1,day1Hours,day2,day2Hours,day3,day3Hours,day4,day4Hours,day5,day5Hours
+Maria,Popescu,Manager,15,Monday,09-17,Wednesday,10-18,Friday,08-14
+Ion,Ionescu,Barista,8,Tuesday,08-16,Thursday,12-20
+George,Stan,Server,12,Monday,16-23,Saturday,14-22,Sunday,10-16
+Elena,Dumitrescu,Chef,20,Wednesday,08-14,Thursday,10-16,Friday,14-22
+Andrei,Marin,Server,10,Friday,12-20,Saturday,18-24
+Cristina,Petrescu,Barista,7,Monday,08-16,Tuesday,08-16,Wednesday,08-16,Thursday,08-16,Friday,08-16

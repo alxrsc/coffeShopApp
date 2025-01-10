@@ -1,0 +1,16 @@
+firstName,lastName,date,totalPrice,product,units,product,units,product,units
+Ionut,Dumitrescu,19.01.2025,25,CocaCola,3
+Simona,Popescu,19.01.2025,48,Water,4,CocaCola,3
+Claudia,Tudor,19.01.2025,12,Sprite,1
+Bogdan,Stan,19.01.2025,56,CocaCola,7
+Alin,Georgescu,20.01.2025,42,Water,5,CocaCola,2
+Cristina,Marin,20.01.2025,28,Sprite,3,Water,1
+Sorin,Petrescu,20.01.2025,36,CocaCola,4,Sprite,1
+Mariana,Balan,20.01.2025,18,Water,2
+Adrian,Tudor,20.01.2025,90,CocaCola,8,Sprite,5
+Ioana,Popescu,21.01.2025,32,Water,3
+Mihai,Dumitrescu,21.01.2025,60,CocaCola,6,Water,4,Sprite,2
+Ana,Stan,21.01.2025,16,Sprite,1
+Catalina,Tudor,21.01.2025,96,CocaCola,9,Water,7
+George,Marin,21.01.2025,26,Sprite,2,CocaCola,1
+Liviu,Ionescu,21.01.2025,50,CocaCola,5,Water,5

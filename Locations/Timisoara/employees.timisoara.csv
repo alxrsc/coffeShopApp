@@ -1,0 +1,7 @@
+firstName,lastName,position,salary/hour,day1,day1Hours,day2,day2Hours,day3,day3Hours,day4,day4Hours,day5,day5Hours
+Radu,Dumitrescu,Manager,22,Monday,09-17,Wednesday,11-19,Friday,08-16
+Florina,Tudor,Barista,10,Tuesday,08-16,Thursday,08-16,Saturday,12-20
+Victor,Georgescu,Server,14,Monday,14-22,Thursday,16-23,Sunday,12-18
+Andreea,Popescu,Chef,18,Wednesday,10-18,Friday,12-20,Saturday,08-14
+Cristian,Marin,Barista,8,Monday,08-16,Tuesday,08-16,Wednesday,08-16,Thursday,08-16,Friday,08-16
+Diana,Petrescu,Server,11,Friday,12-20,Saturday,18-24,Sunday,14-22

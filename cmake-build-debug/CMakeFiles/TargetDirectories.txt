@@ -1,0 +1,3 @@
+/Users/alexandrurosca/Desktop/Facultate/Anul 2/POO/coffeeShopApp/cmake-build-debug/CMakeFiles/coffeeShopApp.dir
+/Users/alexandrurosca/Desktop/Facultate/Anul 2/POO/coffeeShopApp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/alexandrurosca/Desktop/Facultate/Anul 2/POO/coffeeShopApp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
